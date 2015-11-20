@@ -3,5 +3,5 @@ Dockerfile for [BitGo Express](https://github.com/BitGo/BitGoJS) signing server.
 Example usage:
 
 ```bash
-docker run -d -p 3080:3080 --restart always foldapp/bitgo-express
+docker run -d -p 3080:3080 --restart always cardforcoin/bitgo-express
 ```
