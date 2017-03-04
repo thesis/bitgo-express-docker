@@ -1,6 +1,6 @@
 FROM node:5.0.0
 
-RUN npm install -g "bitgo@0.11.47"
+RUN npm install -g "bitgo@2.2.0"
 
 ENV PATH "/usr/local/lib/node_modules/bitgo/bin:$PATH"
 
