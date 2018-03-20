@@ -1,4 +1,4 @@
-FROM node:5.0.0
+FROM node:9.8.0
 
 RUN npm install -g "bitgo@3.4.2"
 
