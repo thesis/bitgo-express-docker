@@ -1,0 +1,24 @@
+version: 2
+jobs:
+  docker-build:
+    docker:
+      - image: circleci/buildpack-deps:jessie-curl
+    steps:
+      - checkout
+      - setup_remote_docker:
+          docker_layer_caching: true
+      - run:
+          name: Build Docker image
+          command: |
+            docker build . -t cardforcoin/bitgo:$CIRCLE_BUILD_NUM
+            if [[ $CIRCLE_BRANCH == "master" ]]; then
+               docker tag cardforcoin/bitgo:$CIRCLE_BUILD_NUM cardforcoin/bitgo:latest
+               docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
+               docker push cardforcoin/bitgo
+            fi
+
+workflows:
+  version: 2
+  docker-build:
+    jobs:
+      - docker-build
