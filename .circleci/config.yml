@@ -10,9 +10,9 @@ jobs:
       - run:
           name: Build Docker image
           command: |
-            docker build . -t cardforcoin/bitgo:$CIRCLE_BUILD_NUM
+            TAG="cardforcoin/bitgo:$(cat ./bitgo-express-version)"
+            docker build . -t "$TAG"
             if [[ $CIRCLE_BRANCH == "master" ]]; then
-               docker tag cardforcoin/bitgo:$CIRCLE_BUILD_NUM cardforcoin/bitgo:latest
                docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
                docker push cardforcoin/bitgo
             fi

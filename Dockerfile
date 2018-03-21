@@ -1,6 +1,8 @@
 FROM node:9.8.0
 
-RUN npm install -g "bitgo@3.4.2"
+COPY ./bitgo-express-version /etc/
+
+RUN npm install -g "bitgo@$(cat /etc/bitgo-express-version)" --unsafe
 
 ENV PATH "/usr/local/lib/node_modules/bitgo/bin:$PATH"
 
