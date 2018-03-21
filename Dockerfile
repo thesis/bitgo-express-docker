@@ -1,4 +1,4 @@
-FROM node:9.8.0
+FROM node:6.9.5
 
 COPY ./bitgo-express-version /etc/
 
