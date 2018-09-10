@@ -10,7 +10,7 @@ jobs:
       - run:
           name: Build Docker image
           command: |
-            IMAGE="cardforcoin/bitgo-express"
+            IMAGE="testrepo573/bitgo-express"
             TAG="$IMAGE:$(cat ./bitgo-express-version)"
             docker build . -t "$TAG"
             if [[ $CIRCLE_BRANCH == "master" ]]; then
