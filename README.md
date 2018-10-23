@@ -4,9 +4,9 @@ Example usage:
 
 For test env:
 ```bash
-docker run -d -p 3080:3080 -e test --restart always cardforcoin/bitgo-express
+docker run -p 3080:3080 --restart always testrepo573/bitgo-express-docker
 ```
 For prod env:
 ```bash
-docker run -d -p 3080:3080 -e prod --restart always cardforcoin/bitgo-express
+docker run -p 3080:3080 -e prod=true --restart always testrepo573/bitgo-express-docker
 ```
